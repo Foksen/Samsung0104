@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+// RXJava - для асинхронности
+// Retrofit - для загрузки из интернета
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
