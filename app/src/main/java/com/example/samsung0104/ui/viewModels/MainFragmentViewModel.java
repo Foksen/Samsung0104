@@ -1,7 +1,10 @@
-package com.example.samsung0104;
+package com.example.samsung0104.ui.viewModels;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
+
+import com.example.samsung0104.data.db.SimplePriceData;
+import com.example.samsung0104.data.repositories.CurrencyRepository;
 
 import java.util.List;
 
@@ -9,12 +12,12 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
-public class FirstFragmentViewModel extends ViewModel {
-    final MutableLiveData<List<SimplePriceData>> prices = new MutableLiveData<>();
+public class MainFragmentViewModel extends ViewModel {
+    public final MutableLiveData<List<SimplePriceData>> prices = new MutableLiveData<>();
     // Mutable - изменяемые данные
     Disposable priceDisposable;
 
-    void onRefreshed() {
+    public void onRefreshed() {
         priceDisposable = CurrencyRepository.getPriceData("USD,EUR,CNY,INR,GBP", "RUB")
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

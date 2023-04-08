@@ -1,4 +1,4 @@
-package com.example.samsung0104;
+package com.example.samsung0104.ui.adapters;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -7,6 +7,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.samsung0104.data.db.SimplePriceData;
 import com.example.samsung0104.databinding.CurrencyItemBinding;
 
 import java.util.List;

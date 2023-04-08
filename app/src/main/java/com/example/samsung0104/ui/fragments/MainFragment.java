@@ -1,4 +1,4 @@
-package com.example.samsung0104;
+package com.example.samsung0104.ui.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,12 +11,14 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.example.samsung0104.ui.viewModels.MainFragmentViewModel;
+import com.example.samsung0104.ui.adapters.PriceAdapter;
 import com.example.samsung0104.databinding.FragmentMainBinding;
 
 public class MainFragment extends Fragment {
 
     FragmentMainBinding binding;
-    FirstFragmentViewModel viewModel;
+    MainFragmentViewModel viewModel;
 
     @Nullable
     @Override
@@ -24,7 +26,7 @@ public class MainFragment extends Fragment {
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
 
-        viewModel = new ViewModelProvider(this).get(FirstFragmentViewModel.class);
+        viewModel = new ViewModelProvider(this).get(MainFragmentViewModel.class);
         binding = FragmentMainBinding.inflate(inflater, container, false);
 
         viewModel.onRefreshed();

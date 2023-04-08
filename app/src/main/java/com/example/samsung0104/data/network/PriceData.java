@@ -1,4 +1,6 @@
-package com.example.samsung0104;
+package com.example.samsung0104.data.network;
+
+import com.example.samsung0104.data.db.SimplePriceData;
 
 import java.util.Arrays;
 import java.util.List;

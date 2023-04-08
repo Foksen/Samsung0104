@@ -1,4 +1,6 @@
-package com.example.samsung0104;
+package com.example.samsung0104.data.network;
+
+import com.example.samsung0104.data.network.PriceData;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;

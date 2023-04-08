@@ -1,4 +1,8 @@
-package com.example.samsung0104;
+package com.example.samsung0104.data.repositories;
+
+import com.example.samsung0104.data.db.SimplePriceData;
+import com.example.samsung0104.data.network.CurrencyAPI;
+import com.example.samsung0104.data.network.PriceData;
 
 import java.util.List;
 
