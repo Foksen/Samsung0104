@@ -3,22 +3,22 @@ package com.example.samsung0104;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import java.util.List;
+
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
 public class FirstFragmentViewModel extends ViewModel {
-    final MutableLiveData<Double> counter = new MutableLiveData<>(0.0);  // Mutable - изменяемые данные
-
+    final MutableLiveData<List<SimplePriceData>> prices = new MutableLiveData<>();
+    // Mutable - изменяемые данные
     Disposable priceDisposable;
 
-    void onPressed() {
-        priceDisposable = CurrencyRepository.getPriceData()
+    void onRefreshed() {
+        priceDisposable = CurrencyRepository.getPriceData("USD,EUR,CNY,INR,GBP", "RUB")
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(priceData -> {
-                    counter.setValue(priceData.Valute.USD.Value);
-                });
+                .subscribe(prices::setValue);
     }
 
     @Override

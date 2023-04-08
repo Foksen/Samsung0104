@@ -1,5 +1,7 @@
 package com.example.samsung0104;
 
+import java.util.List;
+
 import io.reactivex.Observable;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
@@ -16,7 +18,7 @@ public class CurrencyRepository {
         return retrofit.create(CurrencyAPI.class);
     }
 
-    public static Observable<PriceData> getPriceData() {
-        return getRetrofit().getPrice();
+    public static Observable<List<SimplePriceData>> getPriceData(String symbols, String base) {
+        return getRetrofit().getPrice(symbols, base).map(PriceData::castToList);
     }
 }
